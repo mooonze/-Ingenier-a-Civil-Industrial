@@ -1,0 +1,108 @@
+body {
+  font-family: sans-serif;
+  background-color: #ffe6f0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #880e4f;
+}
+
+#barra-progreso {
+  width: 100%;
+  height: 20px;
+  background: #f8bbd0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+#progreso {
+  height: 100%;
+  background: #66e0d4;
+  width: 0%;
+  transition: width 0.4s ease-in-out;
+}
+
+#reiniciar {
+  background: #ffccda;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+#reiniciar:hover {
+  background: #f48fb1;
+}
+
+#malla {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 10px;
+}
+
+.nivel {
+  background: #fce4ec;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.nivel h3 {
+  text-align: center;
+  color: #ad1457;
+  margin-bottom: 10px;
+}
+
+.ramo {
+  background: #d1c4e9;
+  border: 1px solid #aaa;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.ramo:hover {
+  background: #b39ddb;
+}
+
+.ramo.bloqueado {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ramo.bloqueado::after {
+  content: ' 🔒';
+  position: absolute;
+  right: 8px;
+}
+
+.ramo.desbloqueado {
+  opacity: 1;
+  animation: desbloqueo 0.6s ease-in-out;
+}
+
+@keyframes desbloqueo {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.ramo.aprobado {
+  background: #66e0d4;
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.ramo.aprobado::after {
+  content: ' ✔️';
+  position: absolute;
+  right: 8px;
+}
