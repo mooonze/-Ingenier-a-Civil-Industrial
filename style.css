@@ -1,22 +1,28 @@
 body {
   font-family: sans-serif;
   background-color: #ffe6f0;
+  margin: 0;
   padding: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
   color: #880e4f;
+  font-size: 2rem;
 }
 
 #barra-progreso {
   width: 100%;
-  height: 20px;
+  height: 25px;
   background: #f8bbd0;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 #progreso {
@@ -33,9 +39,12 @@ h1 {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  display: block;
+  font-size: 1rem;
   transition: background 0.3s;
 }
+
 #reiniciar:hover {
   background: #f48fb1;
 }
@@ -44,30 +53,35 @@ h1 {
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   gap: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .nivel {
   background: #fce4ec;
   border-radius: 10px;
   padding: 10px;
+  height: fit-content;
 }
 
 .nivel h3 {
   text-align: center;
   color: #ad1457;
   margin-bottom: 10px;
+  font-size: 1.1rem;
 }
 
 .ramo {
   background: #d1c4e9;
   border: 1px solid #aaa;
-  padding: 8px;
-  margin-bottom: 5px;
-  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 6px;
+  border-radius: 14px;
   cursor: pointer;
   opacity: 1;
   transition: all 0.3s ease;
-  position: relative;
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 .ramo:hover {
@@ -77,12 +91,6 @@ h1 {
 .ramo.bloqueado {
   opacity: 0.4;
   cursor: not-allowed;
-}
-
-.ramo.bloqueado::after {
-  content: ' 🔒';
-  position: absolute;
-  right: 8px;
 }
 
 .ramo.desbloqueado {
@@ -99,10 +107,6 @@ h1 {
   background: #66e0d4;
   text-decoration: line-through;
   font-style: italic;
+  color: #444;
 }
 
-.ramo.aprobado::after {
-  content: ' ✔️';
-  position: absolute;
-  right: 8px;
-}
